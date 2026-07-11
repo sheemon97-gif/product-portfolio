@@ -50,8 +50,6 @@ export default function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
   const titleY = useTransform(scrollYProgress, [0, 1], ["0%", "-6%"]);
 
   return (
@@ -111,7 +109,7 @@ export default function Hero() {
 
         {/* Right: rotating portrait carousel */}
         <div className="col-span-12 lg:col-span-4 flex justify-center lg:justify-end">
-          <ClippedPortrait y={imgY} scale={imgScale} />
+          <ClippedPortrait />
         </div>
       </div>
 

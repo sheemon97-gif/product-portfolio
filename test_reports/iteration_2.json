@@ -1,0 +1,59 @@
+{
+  "summary": "Frontend-only verification of two reported bug fixes on portfolio hero + toolkit strip. BOTH BUGS FIXED and verified in the live preview URL.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "bug_verification": {
+    "BUG_1_hero_portraits_render": {
+      "status": "FIXED",
+      "evidence": "portrait-slide-0 naturalWidth=2000 naturalHeight=1333 (WebP loaded from customer-assets CDN). portrait-slide-1 naturalWidth=466 naturalHeight=387 (JPEG loaded). Both > 100. Portrait clearly visible in desktop screenshot (Abhilash's face rendered in grayscale)."
+    },
+    "BUG_1_portrait_auto_rotate": {
+      "status": "FIXED",
+      "evidence": "Opacity cross-fade works. At t=2.5s: slide0 opacity=0, slide1 opacity=1. After +3.5s wait: slide0 opacity=1, slide1 opacity=0. Indicator dots flip too: widths went from (9px, 23px) to (24px, 8px) — active dot swapped correctly."
+    },
+    "BUG_2_toolkit_real_logos": {
+      "status": "FIXED",
+      "evidence": "All 6 tool testids present with real SVGs from /logos/*.svg. naturalWidth > 0 for all: claude(512), canva(80), n8n(228), mixpanel(512), lovable(121), notion(512)."
+    },
+    "BUG_2_toolkit_compact_height": {
+      "status": "FIXED",
+      "evidence": "Every logo <img> offsetHeight = 36px (within required 20-60 range). Not the previous oversized marquee text."
+    },
+    "BUG_2_caption": {
+      "status": "FIXED",
+      "evidence": "toolkit-caption text: '◆  My toolkit for building experiences people love' — visible."
+    },
+    "REGRESSION_nav_and_hero": {
+      "status": "PASS",
+      "evidence": "site-nav visible with About/Experience/LinkedIn/Contact. hero-headline contains 'प्रोडक्ट'. hero-tagline visible. Footer shows LinkedIn @abhilash-mohanta and '© 2026 ABHILASH MOHANTA'."
+    },
+    "REGRESSION_manifesto_chapters": {
+      "status": "PASS",
+      "evidence": "Chapters use testids chapter-about, chapter-experience, chapter-contact (not manifesto-chapter-*). All 3 exist in Manifesto.jsx and render."
+    },
+    "REGRESSION_console_clean": {
+      "status": "PASS_WITH_MINOR_WARNING",
+      "evidence": "Zero console errors. One non-critical framer-motion warning: 'Please ensure that the container has a non-static position (relative/fixed/absolute) to ensure scroll offset is calculated correctly.' — cosmetic Lenis/Motion useScroll notice, no functional impact."
+    }
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Optional: fix the framer-motion useScroll warning by adding position: relative to whatever ref container triggers it (non-blocking cosmetic warning)."
+  ],
+  "critical_code_review_comments": [
+    "ClippedPortrait.jsx: opacity crossfade + preload approach is solid and resolves the previous transform-conflict bug.",
+    "EditorialMarquee.jsx: self-hosted SVGs from /public/logos avoid CORS; grayscale + hover color transition works. Consider adding width/height attributes on <img> to prevent CLS.",
+    "Test-report reviewer note: the review_request expects testid prefix 'manifesto-chapter' but actual code uses 'chapter-about/experience/contact'. Consider aligning or documenting."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only)", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Frontend URL: https://pm-portfolio-57.preview.emergentagent.com. Portrait slides use data-testid portrait-slide-0/1 with opacity crossfade every 3s. Toolkit strip uses tool-{claude,canva,n8n,mixpanel,lovable,notion} testids serving /logos/*.svg. Manifesto chapters use testids chapter-{about,experience,contact} (NOT manifesto-chapter-*).",
+  "rca of the issue": "Previous BUG 1: <motion.img> received both a MotionValue-based `scale` transform in style AND framer-motion `scale` in animate → transform conflict caused invisible render. Fix: switched to two stacked native <img> elements with CSS opacity crossfade; images verified loaded (naturalWidth 2000 & 466). Previous BUG 2: oversized inline SVGs. Fix: 6 real brand SVGs self-hosted at /public/logos, rendered at 28-36px height inside react-fast-marquee with grayscale hover."
+}
