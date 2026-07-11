@@ -1,0 +1,114 @@
+{
+  "theme": "light",
+  "art_direction": "Magazine Editorial / High-End Portfolio",
+  "typography": {
+    "fonts": [
+      {
+        "name": "Instrument Serif",
+        "type": "Primary Display (Latin)",
+        "google_font_url": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap",
+        "usage": "Hero headlines, large manifesto numbers, major section titles. Use italic selectively for emphasis."
+      },
+      {
+        "name": "Noto Serif Devanagari",
+        "type": "Primary Display (Devanagari)",
+        "google_font_url": "https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap",
+        "usage": "For the word 'प्रोडक्ट' in the headline to match the serif elegance of the Latin display font."
+      },
+      {
+        "name": "Manrope",
+        "type": "Body & Utility Sans",
+        "google_font_url": "https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap",
+        "usage": "Nav links, tagline, marquee text, small metadata."
+      }
+    ],
+    "rules": {
+      "headings": "text-6xl md:text-8xl lg:text-9xl tracking-tighter leading-[0.9] font-normal. Scale extremely large for hero.",
+      "body": "text-base md:text-lg leading-relaxed font-light tracking-wide.",
+      "numbers": "Massive scale (text-5xl to text-7xl) for manifesto chapters, styled distinctly, often overlapping elements."
+    }
+  },
+  "colors": {
+    "background": {
+      "primary": "#F4F4F0",
+      "secondary": "#EBEBE6",
+      "description": "Off-white, paper-textured feel. Never pure white. Creates the magazine page baseline."
+    },
+    "text": {
+      "primary": "#121212",
+      "secondary": "#555555",
+      "description": "Deep charcoal for stark contrast. Never pure black. Softens the harshness while keeping edge."
+    },
+    "accent": {
+      "primary": "#D9381E",
+      "description": "A sharp vermilion/burnt red for subtle interactive highlights, hover underlines, or tiny geometric shapes."
+    }
+  },
+  "visual_enhancers": {
+    "texture": "Add a subtle SVG noise/grain overlay across the entire page (opacity ~3-5%, mix-blend-mode: multiply, pointer-events: none) to enhance the print/editorial vibe.",
+    "borders": "Use hairline borders (1px solid #121212 with 10% opacity) for structural divisions, mimicking magazine grid lines.",
+    "photography": "Strictly Black & White with high contrast. Use a 'clipped frame' (e.g., an arched top `rounded-t-full` or precise rectangular CSS clip-path) with a subtle spotlight effect."
+  },
+  "layouts": {
+    "navigation": "Sticky top nav, using the primary background color to prevent text overlapping issues. Use shifting underline hover micro-interactions on links.",
+    "hero": "Kinetic layout. Large Devanagari-blended headline spanning the screen. Tagline and portrait placed asymmetrically to create tension.",
+    "marquee": "Slow, smooth-running editorial text ticker placed strategically (e.g., separating the hero from the manifesto sections).",
+    "manifesto": "Numbered chapters (01, 02, 03) arranged in an asymmetrical bento-style or wide-column layout."
+  },
+  "motion": {
+    "libraries": ["framer-motion", "lenis", "react-fast-marquee"],
+    "hero_reveal": "Masked line-by-line reveal: Wrap each text line in an overflow-hidden container and animate the text upwards (y: '100%' to '0%') over 1-1.5s with a custom cubic-bezier.",
+    "scroll": "Smooth momentum scrolling enabled via Lenis wrapper.",
+    "image_parallax": "Subtle parallax on the hero image via Framer Motion useScroll hook (moving slightly slower than the page scroll).",
+    "interactions": "Nav links and buttons should have premium micro-interactions."
+  },
+  "media": {
+    "hero_portrait": {
+      "url": "https://customer-assets.emergentagent.com/job_1ea653e5-06a2-4a53-b2de-a4c9aaa64499/artifacts/vvp55ts8_WhatsApp%20Image%202026-05-15%20at%2010.59.46.jpeg",
+      "treatment": "Convert to grayscale via Tailwind `grayscale contrast-125`. Place inside an explicit clipped frame.",
+      "alt": "Abhilash Mohanta - Product Manager"
+    }
+  },
+  "components": [
+    {
+      "name": "NoiseOverlay",
+      "instructions": "A fixed absolute div covering the screen with pointer-events-none and a noise texture background."
+    },
+    {
+      "name": "KineticHeadline",
+      "instructions": "A framer-motion powered component that splits the text into lines and animates them up from behind a mask on mount. Headline text: 'Turning user problems into प्रोडक्ट that matter'."
+    },
+    {
+      "name": "EditorialMarquee",
+      "instructions": "Uses react-fast-marquee to display the role keywords / manifesto slogan continuously at a very slow speed."
+    },
+    {
+      "name": "ClippedPortrait",
+      "instructions": "Image component using CSS clip-path or rounded-t-[50%] structures, applying the B&W filter and Framer Motion parallax."
+    }
+  ],
+  "accessibility": {
+    "contrast": "Ensure text contrast against the #F4F4F0 background exceeds WCAG AA standards.",
+    "motion": "Respect prefers-reduced-motion media query to disable Lenis and Framer Motion transforms.",
+    "test_ids": "Apply data-testid attributes to all interactive elements, e.g., data-testid='nav-about-link', data-testid='hero-contact-button'."
+  },
+  "instructions_to_main_agent": [
+    "Read this JSON and implement a highly polished magazine-style editorial portfolio landing page.",
+    "Use standard React .js files, NOT .tsx files. Use standard DOM and Tailwind classes.",
+    "Inject fonts via standard Google Fonts link tags in the main index.html or import in CSS.",
+    "Integrate the Hindi text 'प्रोडक्ट' fluidly within the headline using the 'Noto Serif Devanagari' font.",
+    "Do not build out the full internal pages for About, Experience, Contact—just use anchor links or teased sections below the fold.",
+    "Implement the framer-motion line-by-line reveal exactly as described.",
+    "Provide a smooth smooth-scrolling experience using Lenis.",
+    "Ensure the hero image uses the provided URL and is treated with high-contrast grayscale.",
+    "Never use pure white #FFFFFF or pure black #000000.",
+    "Install necessary dependencies: yarn add framer-motion lenis react-fast-marquee lucide-react clsx tailwind-merge"
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Don't make generic centered layouts. Use asymmetrical alignments, empty space, and dramatic typographic scales.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Never use placeholder URLs (like via.placeholder.com). Use only provided media URLs.",
+    "Include data-testid on every interactive element."
+  ]
+}
