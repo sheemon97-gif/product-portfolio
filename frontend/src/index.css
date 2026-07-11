@@ -5,10 +5,14 @@
 :root {
     --paper: #f4f4f0;
     --paper-2: #ebebe6;
+    --paper-warm: #f4eeda;
     --ink: #121212;
     --ink-soft: #555555;
     --hairline: rgba(18, 18, 18, 0.14);
     --vermilion: #d9381e;
+    --ochre: #c48b3c;
+    --ochre-deep: #a06f26;
+    --ochre-soft: #efe1c1;
 }
 
 * {

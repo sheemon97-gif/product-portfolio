@@ -43,12 +43,12 @@ function Chapter({ chapter, idx }) {
     >
       <div className="col-span-12 md:col-span-3 flex md:block items-baseline gap-4">
         <span
-          className="chapter-num text-[7rem] md:text-[9rem] lg:text-[11rem] text-[#121212]"
+          className="chapter-num text-[7rem] md:text-[9rem] lg:text-[11rem] text-[#C48B3C]"
           aria-hidden="true"
         >
           {chapter.num}
         </span>
-        <span className="font-sans-ed text-[10px] uppercase tracking-[0.32em] text-[#555] md:mt-4 md:block">
+        <span className="font-sans-ed text-[10px] uppercase tracking-[0.32em] text-[#7A6740] md:mt-4 md:block">
           Chapter · {chapter.kicker}
         </span>
       </div>
@@ -98,7 +98,8 @@ export default function Manifesto() {
   return (
     <section
       data-testid="manifesto-section"
-      className="relative px-6 md:px-10 py-16 md:py-24"
+      id="about"
+      className="relative px-6 md:px-10 py-16 md:py-24 bg-gradient-to-b from-[#F4F4F0] via-[#F7F1E1] to-[#F4F4F0]"
     >
       <div className="mx-auto max-w-[1440px]">
         <div className="flex items-baseline justify-between mb-10 md:mb-16">

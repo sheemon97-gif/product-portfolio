@@ -32,7 +32,7 @@ function MaskedLine({ line, delay }) {
               p.deva
                 ? "font-deva text-[#121212] mx-[0.02em] inline-block"
                 : p.italic
-                  ? "font-display-it"
+                  ? "font-display-it text-[#A06F26]"
                   : ""
             }
           >

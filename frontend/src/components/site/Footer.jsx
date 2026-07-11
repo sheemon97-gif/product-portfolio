@@ -15,7 +15,7 @@ export default function Footer() {
           transition={{ duration: 0.9, ease: [0.65, 0, 0.35, 1] }}
           className="col-span-12 md:col-span-8 font-display text-[#121212] text-[2.2rem] md:text-[3.4rem] lg:text-[4.4rem] leading-[1] tracking-[-0.02em]"
         >
-          Currently reading briefs, <span className="font-display-it">writing specs,</span> and shipping <span className="font-deva">प्रोडक्ट</span>.
+          Currently reading briefs, <span className="font-display-it text-[#A06F26]">writing specs,</span> and shipping <span className="font-deva text-[#D9381E]">प्रोडक्ट</span>.
         </motion.h4>
 
         <div className="col-span-12 md:col-span-4 flex flex-col justify-end gap-4 md:items-end">
