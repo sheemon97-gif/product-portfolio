@@ -92,6 +92,7 @@ export default function Hero() {
         <motion.h1
           style={{ y: titleY }}
           data-testid="hero-headline"
+          aria-label="Turning user problems into products that matter"
           className="col-span-12 lg:col-span-8 font-display text-[#121212] leading-[0.92] tracking-[-0.025em] text-[3.4rem] sm:text-[4.8rem] md:text-[6.6rem] lg:text-[8.4rem] xl:text-[10rem]"
         >
           <MaskedLine line={LINES[0]} delay={0.35} />
