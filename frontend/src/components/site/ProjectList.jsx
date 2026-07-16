@@ -86,13 +86,13 @@ function ProjectCard({ project }) {
         </div>
 
         {/* Caption row */}
-        <div className="flex items-end justify-between gap-4 px-5 md:px-6 py-5 md:py-6">
-          <div className="min-w-0">
+        <div className="flex items-end justify-between gap-4 px-5 md:px-6 py-5 md:py-6 min-h-[128px]">
+          <div className="min-w-0 flex-1">
             <p className="font-sans-ed text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-[#7A6740] mb-2">
               {project.kicker}
             </p>
             <h3
-              className="font-display text-[#121212] text-[22px] md:text-[26px] lg:text-[28px] leading-[1.1] tracking-[-0.015em]"
+              className="font-display text-[#121212] text-[22px] md:text-[26px] lg:text-[28px] leading-[1.1] tracking-[-0.015em] line-clamp-2 min-h-[2.2em]"
               data-testid={`project-title-${project.id}`}
             >
               {project.title}
