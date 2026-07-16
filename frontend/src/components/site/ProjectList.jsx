@@ -162,8 +162,7 @@ export default function ProjectList() {
       </div>
 
       {/* Small hint below */}
-      <div className="mx-auto max-w-[1440px] px-6 md:px-10 mt-10 md:mt-14 flex items-center justify-between font-sans-ed text-[10px] uppercase tracking-[0.32em] text-[#7A6740]">
-        <span data-testid="project-list-hint">Hover to pause · Click to open</span>
+      <div className="mx-auto max-w-[1440px] px-6 md:px-10 mt-10 md:mt-14 flex items-center justify-end font-sans-ed text-[10px] uppercase tracking-[0.32em] text-[#7A6740]">
         <span className="hidden md:inline">More cases dropping soon</span>
       </div>
     </section>

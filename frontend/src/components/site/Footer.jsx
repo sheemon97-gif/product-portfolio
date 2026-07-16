@@ -19,7 +19,7 @@ export default function Footer() {
           Currently reading briefs, <span className="font-display-it text-[#A06F26]">writing specs,</span> and shipping <span className="font-deva text-[#D9381E]">प्रोडक्ट</span>.
         </motion.h4>
 
-        <div className="col-span-12 md:col-span-4 flex flex-col justify-end gap-4 md:items-end">
+        <div className="col-span-12 md:col-span-4 flex flex-col justify-end gap-3 md:items-end">
           <a
             data-testid="footer-linkedin"
             href="https://www.linkedin.com/in/abhilash-mohanta-spjimr/"
@@ -29,6 +29,23 @@ export default function Footer() {
           >
             LinkedIn — @abhilash-mohanta
           </a>
+          <a
+            data-testid="footer-phone"
+            href="tel:+919439320807"
+            className="ed-link font-sans-ed text-[12px] uppercase tracking-[0.24em]"
+          >
+            +91 · 94393 20807
+          </a>
+          <span
+            data-testid="footer-location"
+            className="font-sans-ed text-[11px] uppercase tracking-[0.24em] text-[#555] flex items-center gap-2"
+          >
+            <span
+              aria-hidden="true"
+              className="inline-block w-1.5 h-1.5 rounded-full bg-[#D9381E]"
+            />
+            Bengaluru · India
+          </span>
           <span className="font-sans-ed text-[11px] uppercase tracking-[0.24em] text-[#555]">
             Designed &amp; built with intent, 2025
           </span>

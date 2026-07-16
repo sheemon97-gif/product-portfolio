@@ -50,9 +50,6 @@ export default function Nav() {
           <span className="font-display text-2xl md:text-[26px] leading-none">
             Abhilash
           </span>
-          <span className="hidden sm:inline-block font-sans-ed uppercase tracking-[0.24em] text-[10px] text-[#555] mt-1">
-            / PM
-          </span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
