@@ -1,0 +1,37 @@
+{
+  "summary": "Frontend feature swap tested: Manifesto section replaced with ProjectList marquee. All 13 required test criteria PASSED including 5 project cards (duplicated by react-fast-marquee), images loading with correct aspect ratio (1.741), auto-scroll, hover-pause, arrow CTA hover transition, and nav/hero/footer regressions.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Non-blocking: Console warning from Lenis smooth-scroll: 'Please ensure that the container has a non-static position, like relative/fixed/absolute to ensure scroll offset is calculated correctly.' Consider adding position:relative to SmoothScroll wrapper.",
+    "Cleanup: /app/frontend/src/components/site/Manifesto.jsx file still exists in repo but is unused/unimported — can be deleted for hygiene (not blocking)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "ProjectList section is fully working. Manifesto section confirmed removed from Portfolio.jsx (component file still exists but unimported). Marquee duplicates children so each project-card testid appears exactly 2x. Note: Playwright hover() fails on marquee cards ('element is not stable'); use page.mouse.move(x,y) with coordinates instead.",
+  "detailed_results": {
+    "project-list-section exists with id=experience": "PASS",
+    "manifesto-section absent": "PASS",
+    "heading 'Project List' and kicker 'Section 03 · Selected Work'": "PASS",
+    "all 5 project cards render, each appears twice": "PASS",
+    "all 5 images HTTP 200 with naturalWidth > 100 (820-830)": "PASS",
+    "aspect ratio wrapper 1.741 within [1.65, 1.85]": "PASS",
+    "marquee auto-scrolling (78px diff over 3s)": "PASS",
+    "hover-pause (0px diff over 1.5s while hovered)": "PASS",
+    "resume after mouse leave (40px diff over 1.5s)": "PASS",
+    "arrow SVG present, second SVG opacity 0->1 on hover": "PASS",
+    "nav About=#top, Experience=#experience, Contact=#contact, LinkedIn external": "PASS",
+    "hero-section + editorial-marquee + footer(id=contact) present": "PASS",
+    "Experience nav click scrolls to project list section": "PASS",
+    "no critical console errors": "PASS"
+  }
+}

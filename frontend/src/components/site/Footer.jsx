@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 export default function Footer() {
   return (
     <footer
+      id="contact"
       data-testid="site-footer"
       className="relative px-6 md:px-10 pt-16 md:pt-24 pb-10 border-t border-[#12121224]"
     >

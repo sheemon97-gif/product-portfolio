@@ -4,7 +4,7 @@ import NoiseOverlay from "@/components/site/NoiseOverlay";
 import Nav from "@/components/site/Nav";
 import Hero from "@/components/site/Hero";
 import EditorialMarquee from "@/components/site/EditorialMarquee";
-import Manifesto from "@/components/site/Manifesto";
+import ProjectList from "@/components/site/ProjectList";
 import Footer from "@/components/site/Footer";
 
 export default function Portfolio() {
@@ -18,7 +18,7 @@ export default function Portfolio() {
         <Nav />
         <Hero />
         <EditorialMarquee />
-        <Manifesto />
+        <ProjectList />
         <Footer />
       </main>
     </SmoothScroll>
