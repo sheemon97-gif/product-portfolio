@@ -148,11 +148,11 @@ body {
 
 /* Portrait clip */
 .portrait-clip {
-    clip-path: inset(0 0 0 0 round 260px 260px 24px 24px);
+    clip-path: inset(0 0 0 0 round 24px);
 }
 @media (max-width: 768px) {
     .portrait-clip {
-        clip-path: inset(0 0 0 0 round 180px 180px 16px 16px);
+        clip-path: inset(0 0 0 0 round 18px);
     }
 }
 

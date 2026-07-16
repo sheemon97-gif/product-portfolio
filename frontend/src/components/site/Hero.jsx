@@ -141,12 +141,6 @@ export default function Hero() {
                 </svg>
               </span>
             </a>
-            <span
-              data-testid="hero-resume-meta"
-              className="font-sans-ed text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-[#7A6740]"
-            >
-              PDF · Updated 2025
-            </span>
           </motion.div>
         </motion.div>
 

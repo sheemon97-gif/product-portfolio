@@ -35,7 +35,7 @@ export default function ClippedPortrait() {
         />
       </div>
 
-      {/* Animated tracing border — SVG path matches the arched clip shape */}
+      {/* Animated tracing border — SVG path matches the rounded rectangle clip shape */}
       <svg
         data-testid="portrait-border"
         aria-hidden="true"
@@ -51,9 +51,9 @@ export default function ClippedPortrait() {
             <stop offset="100%" stopColor="#A06F26" stopOpacity="0" />
           </linearGradient>
         </defs>
-        {/* Static hairline (matches the clip-path curve) */}
+        {/* Static hairline — rounded rectangle */}
         <path
-          d="M 12 150 A 138 138 0 0 1 288 150 L 288 388 A 12 12 0 0 1 276 400 L 24 400 A 12 12 0 0 1 12 388 Z"
+          d="M 24 0 L 276 0 A 24 24 0 0 1 300 24 L 300 376 A 24 24 0 0 1 276 400 L 24 400 A 24 24 0 0 1 0 376 L 0 24 A 24 24 0 0 1 24 0 Z"
           fill="none"
           stroke="#12121233"
           strokeWidth="1"
@@ -61,7 +61,7 @@ export default function ClippedPortrait() {
         />
         {/* Traveling gradient segment */}
         <motion.path
-          d="M 12 150 A 138 138 0 0 1 288 150 L 288 388 A 12 12 0 0 1 276 400 L 24 400 A 12 12 0 0 1 12 388 Z"
+          d="M 24 0 L 276 0 A 24 24 0 0 1 300 24 L 300 376 A 24 24 0 0 1 276 400 L 24 400 A 24 24 0 0 1 0 376 L 0 24 A 24 24 0 0 1 24 0 Z"
           fill="none"
           stroke="url(#portrait-trace)"
           strokeWidth="1.4"
