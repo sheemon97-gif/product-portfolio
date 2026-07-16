@@ -113,14 +113,14 @@ const RESUME = {
     {
       degree: "MBA",
       institution: "SP Jain Institute of Management & Research",
-      dates: "Pursuing",
-      details: [],
+      dates: "2026",
+      details: ["Information Management"],
     },
     {
       degree: "B.Tech",
       institution: "KIIT Deemed to be University",
       dates: "2019",
-      details: ["Information Management", "Mechanical Engineering", "8.76 CGPA"],
+      details: ["Mechanical Engineering", "8.76 CGPA"],
     },
   ],
   achievements: [
