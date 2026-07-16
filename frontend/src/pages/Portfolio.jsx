@@ -5,6 +5,7 @@ import Nav from "@/components/site/Nav";
 import Hero from "@/components/site/Hero";
 import EditorialMarquee from "@/components/site/EditorialMarquee";
 import ProjectList from "@/components/site/ProjectList";
+import Podcast from "@/components/site/Podcast";
 import Footer from "@/components/site/Footer";
 
 export default function Portfolio() {
@@ -19,6 +20,7 @@ export default function Portfolio() {
         <Hero />
         <EditorialMarquee />
         <ProjectList />
+        <Podcast />
         <Footer />
       </main>
     </SmoothScroll>

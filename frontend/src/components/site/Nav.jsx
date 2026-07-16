@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 const links = [
   { label: "About", href: "#top", testId: "nav-about-link" },
   { label: "Experience", href: "#experience", testId: "nav-experience-link" },
+  { label: "Podcast", href: "#podcast", testId: "nav-podcast-link" },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/abhilash-mohanta-spjimr/",
