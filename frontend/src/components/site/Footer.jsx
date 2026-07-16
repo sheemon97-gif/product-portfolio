@@ -47,7 +47,7 @@ export default function Footer() {
             Bengaluru · India
           </span>
           <span className="font-sans-ed text-[11px] uppercase tracking-[0.24em] text-[#555]">
-            Designed &amp; built with intent, 2025
+            Designed &amp; built with intent, 2026
           </span>
         </div>
       </div>
