@@ -1,0 +1,39 @@
+{
+  "summary": "Tested Project List fixes. Bug 2 (index tag removal) fully fixed. Bug 1 (identical card sizes) PARTIALLY fixed — widths & image wrapper dimensions now identical across all 5 cards, but total card HEIGHTS still differ by ~31px because titles on 'Investing Made Fun' and 'Flipkart' cards wrap to 2 lines while other 3 titles fit on 1 line. All regression checks pass (marquee scrolls, hover pauses, kicker/title/arrow present, no console errors).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "ProjectList / ProjectCard", "issue": "Card heights are NOT identical. Widths=[500,500,500,500,500] (Δ=0px ✓) but heights=[385.27, 385.27, 385.27, 416.06, 416.06] (Δ≈31px ✗). Investing Made Fun and Flipkart cards are taller because their longer titles wrap to 2 lines. Image wrapper (498x280, ratio 1.779) is identical across all cards — the divergence is caused by the title text block, not the image wrapper.", "selector": "[data-testid^=project-card-]", "priority": "HIGH"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verified_fixes": [
+    "BUG 2: No [data-testid^=project-index-] elements exist (count=0). No card contains '01·05'/'01/05'-style text.",
+    "Image wrapper aspect ratio = 1.779 (within 1.77–1.79) on all 5 cards.",
+    "Computed object-fit = 'contain' on all 5 card images.",
+    "Card widths identical: 500px on all 5.",
+    "Marquee auto-scrolls (Δleft ≈ 79px over 3s) and hover-pauses (Δleft = 0 while hovering).",
+    "Each card contains kicker, [data-testid=project-title-<id>], and arrow SVG path 'M4 12h14M14 6l6 6-6 6'.",
+    "Nav / Hero / Footer render without console errors."
+  ],
+  "measurements": {
+    "spotify-teardown":       {"w": 500, "h": 385.27, "wrapper": "498x279.97", "ratio": 1.779, "objectFit": "contain"},
+    "persona-builder":        {"w": 500, "h": 385.27, "wrapper": "498x279.97", "ratio": 1.779, "objectFit": "contain"},
+    "whatsapp-delete":        {"w": 500, "h": 385.27, "wrapper": "498x279.97", "ratio": 1.779, "objectFit": "contain"},
+    "investing-mutual-funds": {"w": 500, "h": 416.06, "wrapper": "498x279.97", "ratio": 1.779, "objectFit": "contain"},
+    "flipkart-funnel":        {"w": 500, "h": 416.06, "wrapper": "498x279.97", "ratio": 1.779, "objectFit": "contain"}
+  },
+  "action_items": [
+    "Force the title block to have a fixed height (e.g., min-h / h with line-clamp-2) so titles that fit on 1 line still reserve the same vertical space as 2-line titles. Suggested: add 'min-h-[3.5rem] line-clamp-2' (or equivalent based on font-size/line-height) to [data-testid=project-title-*] wrapper. Alternatively set the outer article to a fixed height (e.g., h-[420px]) so all 5 cards measure identically via getBoundingClientRect."
+  ],
+  "critical_code_review_comments": [
+    "Card container uses content-driven height. Any variability in title length or footer text will cascade into inconsistent card heights inside a horizontal marquee — this is exactly what the user reported. Enforce a fixed height on the article OR clamp the title to a fixed line count.",
+    "react-fast-marquee duplicates children — testid count is 4 (2 copies × 2 marquee passes) rather than 2. Not a bug, just noting."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "85%"},
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "After main agent fixes card height parity (title clamp or fixed article height), re-run the getBoundingClientRect assertion on all 5 cards and confirm max-min height < 1px."
+}

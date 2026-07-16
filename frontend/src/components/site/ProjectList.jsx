@@ -66,7 +66,7 @@ function ArrowCTA() {
   );
 }
 
-function ProjectCard({ project, idx }) {
+function ProjectCard({ project }) {
   return (
     <a
       href={project.href}
@@ -74,22 +74,15 @@ function ProjectCard({ project, idx }) {
       className="group block mx-4 md:mx-6 lg:mx-8 w-[320px] sm:w-[380px] md:w-[440px] lg:w-[500px] shrink-0"
     >
       <article className="rounded-2xl overflow-hidden bg-[#FBF7EA] border border-[#12121218] shadow-[0_20px_40px_-30px_rgba(18,18,18,0.35)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_30px_60px_-30px_rgba(18,18,18,0.4)]">
-        {/* Image — preserves aspect ratio 826x475 (~1.74:1) */}
-        <div className="relative w-full aspect-[826/475] bg-[#EFE7D5] overflow-hidden">
+        {/* Image — preserves aspect ratio via object-contain so nothing gets cropped */}
+        <div className="relative w-full aspect-[820/461] bg-[#F4EEDA] overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:scale-[1.03]"
+            className="absolute inset-0 w-full h-full object-contain transition-transform duration-[900ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:scale-[1.02]"
           />
-          {/* Numeric index tag */}
-          <span
-            className="absolute top-3 left-3 font-sans-ed text-[10px] uppercase tracking-[0.28em] text-[#121212] bg-[#F4EEDA]/90 backdrop-blur-sm px-2.5 py-1 rounded-full"
-            data-testid={`project-index-${project.id}`}
-          >
-            0{idx + 1} · {String(PROJECTS.length).padStart(2, "0")}
-          </span>
         </div>
 
         {/* Caption row */}
@@ -157,11 +150,11 @@ export default function ProjectList() {
           speed={26}
           pauseOnHover={true}
         >
-          {PROJECTS.map((p, i) => (
-            <ProjectCard key={`a-${p.id}`} project={p} idx={i} />
+          {PROJECTS.map((p) => (
+            <ProjectCard key={`a-${p.id}`} project={p} />
           ))}
-          {PROJECTS.map((p, i) => (
-            <ProjectCard key={`b-${p.id}`} project={p} idx={i} />
+          {PROJECTS.map((p) => (
+            <ProjectCard key={`b-${p.id}`} project={p} />
           ))}
         </Marquee>
       </div>
