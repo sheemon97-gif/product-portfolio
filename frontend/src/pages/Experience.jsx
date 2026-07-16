@@ -267,7 +267,7 @@ export default function Experience() {
               <span className="text-[#12121228]">·</span>
               <span>Tata Technologies · 5.4 yrs</span>
               <span className="text-[#12121228]">·</span>
-              <span>PMP mindset · Agile · AI-first</span>
+              <span>Accenture · Present</span>
             </motion.div>
           </div>
         </section>
