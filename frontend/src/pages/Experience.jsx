@@ -243,7 +243,7 @@ export default function Experience() {
               data-testid="experience-kicker"
               className="font-sans-ed text-[10px] md:text-[11px] uppercase tracking-[0.32em] text-[#7A6740] mb-6"
             >
-              <span className="text-[#D9381E]">◆</span>&nbsp;&nbsp;The Experience Dossier · 2025
+              <span className="text-[#D9381E]">◆</span>&nbsp;&nbsp;The Experience Dossier · 2026
             </motion.p>
 
             <motion.h1
