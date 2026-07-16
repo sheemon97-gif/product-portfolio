@@ -21,6 +21,13 @@ const RESUME = {
   ],
   professionalExperience: [
     {
+      company: "Accenture — Business Architect Associate Manager",
+      client: null,
+      dates: "May 2026 – Present",
+      intro:
+        "Currently driving business architecture and product strategy engagements at Accenture.",
+    },
+    {
       company: "Tata Technologies — Digital Product Development and Systems",
       client: "[Tata Motors, Tata Daewoo Commercial Vehicles]",
       dates: "July 2019 – Nov 2024",
@@ -249,17 +256,6 @@ export default function Experience() {
               {RESUME.name}
               <span className="font-display-it text-[#A06F26]">.</span>
             </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: EASE, delay: 0.25 }}
-              className="mt-6 md:mt-8 font-sans-ed text-[15px] md:text-[17px] leading-[1.55] text-[#333] max-w-[64ch]"
-            >
-              Product manager with 5.4+ years of technology consulting experience, most recently
-              driving digital transformation and product ownership across global automobile
-              manufacturing at Tata Technologies, and currently pursuing an MBA at SPJIMR.
-            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

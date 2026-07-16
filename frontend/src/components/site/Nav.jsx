@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const links = [
-  { label: "About", href: "#top", testId: "nav-about-link" },
   { label: "Experience", to: "/experience", testId: "nav-experience-link", internal: true },
   { label: "Work", href: "#work", testId: "nav-work-link" },
   { label: "Podcast", href: "#podcast", testId: "nav-podcast-link" },
