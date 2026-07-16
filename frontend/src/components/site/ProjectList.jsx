@@ -8,35 +8,35 @@ const PROJECTS = [
     title: "Spotify — Product Teardown",
     kicker: "Product Teardown · 2025",
     image: "/projects/spotify-teardown.png",
-    href: "#",
+    href: "https://theproductspace.in/projects/1757486010553",
   },
   {
     id: "persona-builder",
     title: "AI-Generated User Persona Builder",
     kicker: "0 → 1 · AI Tooling",
     image: "/projects/persona-builder.png",
-    href: "#",
+    href: "https://theproductspace.in/projects/1757485277202",
   },
   {
     id: "whatsapp-delete",
     title: "WhatsApp — Message Delete Feature",
     kicker: "Product Feature Analysis",
     image: "/projects/whatsapp-delete.png",
-    href: "#",
+    href: "https://theproductspace.in/projects/1757401650708",
   },
   {
     id: "investing-mutual-funds",
     title: "Investing Made Fun — Gamifying Mutual Funds",
     kicker: "Product Sprint 1 · Team Bazinga",
     image: "/projects/investing-mutual-funds.png",
-    href: "#",
+    href: "https://theproductspace.in/projects/1756980534988",
   },
   {
     id: "flipkart-funnel",
     title: "Flipkart — Discovery to Engagement Funnel",
     kicker: "Goal · +5% order conversion in 3 months",
     image: "/projects/flipkart-funnel.png",
-    href: "#",
+    href: "https://theproductspace.in/projects/1751220007723",
   },
 ];
 
@@ -70,6 +70,8 @@ function ProjectCard({ project }) {
   return (
     <a
       href={project.href}
+      target="_blank"
+      rel="noopener noreferrer"
       data-testid={`project-card-${project.id}`}
       className="group block mx-4 md:mx-6 lg:mx-8 w-[320px] sm:w-[380px] md:w-[440px] lg:w-[500px] shrink-0"
     >

@@ -180,17 +180,24 @@ export default function Podcast() {
                 </figcaption>
               </motion.figure>
 
-              {/* Trailer — smaller card offset */}
+              {/* Trailer — smaller card offset, clickable */}
               <motion.figure
                 initial={{ opacity: 0, y: 50, rotate: 3 }}
                 whileInView={{ opacity: 1, y: 0, rotate: 3 }}
                 viewport={{ once: true, margin: "-15% 0px" }}
                 transition={{ duration: 1.1, ease: EASE, delay: 0.35 }}
                 data-testid="podcast-trailer-figure"
-                className="absolute -bottom-16 md:-bottom-24 lg:-bottom-28 right-2 md:right-4 lg:right-8 w-[46%] md:w-[42%] lg:w-[38%] xl:w-[36%] aspect-[2000/1309] bg-[#F5B443] p-2 md:p-3"
+                className="absolute -bottom-16 md:-bottom-24 lg:-bottom-28 right-2 md:right-4 lg:right-8 w-[46%] md:w-[42%] lg:w-[38%] xl:w-[36%] aspect-[2000/1309] bg-[#F5B443] p-2 md:p-3 transition-transform duration-500 hover:scale-[1.03]"
                 style={{ boxShadow: "0 30px 60px -20px rgba(59, 42, 5, 0.55), inset 0 0 0 1px rgba(18,18,18,0.08)" }}
               >
-                <div className="relative w-full h-full bg-white ring-1 ring-[#12121210] overflow-hidden">
+                <a
+                  href="https://www.instagram.com/reel/DXVwKZ2Eeqk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="podcast-trailer-link"
+                  aria-label="Watch the Your First 25 trailer on Instagram"
+                  className="group block relative w-full h-full bg-white ring-1 ring-[#12121210] overflow-hidden"
+                >
                   <img
                     src="/podcast/trailer.webp"
                     alt="Your First 25 — Trailer"
@@ -204,13 +211,13 @@ export default function Podcast() {
                     aria-hidden="true"
                     className="absolute inset-0 flex items-center justify-center"
                   >
-                    <span className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/95 shadow-lg">
+                    <span className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/95 shadow-lg transition-transform duration-500 group-hover:scale-110">
                       <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                         <path d="M4 2 15 9 4 16 4 2Z" fill="#121212" />
                       </svg>
                     </span>
                   </span>
-                </div>
+                </a>
                 <figcaption className="absolute -bottom-7 left-0 right-0 flex items-center justify-between font-sans-ed text-[9px] md:text-[10px] uppercase tracking-[0.28em] text-[#3B2A05]">
                   <span>Trailer</span>
                   <span>~ 00:45</span>
