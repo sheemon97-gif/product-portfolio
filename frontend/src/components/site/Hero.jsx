@@ -8,8 +8,10 @@ const LINES = [
   { parts: [{ text: "Turning user problems" }] },
   {
     parts: [
-      { text: "into products that " },
-      { text: "मायने रखते हैं", deva: true, italic: true },
+      { text: "into " },
+      { text: "products", bold: true },
+      { text: " that " },
+      { text: "matter.", italic: true },
     ],
   },
 ];
@@ -24,11 +26,9 @@ function MaskedLine({ line, delay }) {
         transition={{ duration: 1.05, ease: EASE, delay }}
       >
         {line.parts.map((p, i) => {
-          const cls = p.deva
-            ? `font-deva mx-[0.02em] inline-block ${p.italic ? "text-[#A06F26]" : "text-[#121212]"}`
-            : p.italic
-              ? "font-display-it text-[#A06F26]"
-              : "";
+          let cls = "";
+          if (p.bold) cls = "font-display font-semibold text-[#D9381E]";
+          else if (p.italic) cls = "font-display-it text-[#A06F26]";
           return (
             <span key={i} className={cls}>
               {p.text}
