@@ -108,7 +108,7 @@ function ProjectCard({ project }) {
 export default function ProjectList() {
   return (
     <section
-      id="experience"
+      id="work"
       data-testid="project-list-section"
       className="relative py-20 md:py-28 bg-gradient-to-b from-[#F4F4F0] via-[#F7F1E1] to-[#F4F4F0] overflow-hidden"
     >

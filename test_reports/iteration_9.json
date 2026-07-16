@@ -1,0 +1,57 @@
+{
+  "summary": "Tested new /experience route and portfolio regression. The /experience page renders correctly with all resume content and required testids. However, the homepage (/) is COMPLETELY BROKEN due to a runtime error in Nav.jsx — 'hashHref is not defined' — which crashes the <Nav> component and results in a blank white screen with no rendered content. Additionally, Nav.jsx does not match the review-request spec: it does not import react-router Link, does not mark Experience as internal, and does not include the new 'Work' nav link. Only /experience works because it uses its own topbar (not the shared Nav).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Nav (/app/frontend/src/components/site/Nav.jsx)", "issue": "ReferenceError: hashHref is not defined at line 70. Nav component throws, root portfolio route '/' renders a completely blank page. No nav, hero, projects, podcast, or footer visible.", "selector": "[data-testid=site-nav]", "priority": "CRITICAL"},
+      {"component": "Nav.jsx", "issue": "Uses <Link> component (line 57) but react-router-dom Link is NOT imported. Would also throw once the internal branch is reached.", "selector": "n/a", "priority": "CRITICAL"},
+      {"component": "Nav.jsx links array", "issue": "Missing 'Work' nav link entirely. Missing 'internal:true' + 'to:/experience' on the Experience link. Current file still has legacy Experience href='#experience' with only 5 links (About, Experience, Podcast, LinkedIn, Contact) — does not match the required 6-link nav order (About / Experience / Work / Podcast / LinkedIn / Contact).", "selector": "n/a", "priority": "HIGH"}
+    ],
+    "integration_issues": [
+      {"flow": "Portfolio homepage load", "issue": "Blank page — React error breaks entire tree. All homepage-related regression tests (project list, hero, podcast, footer, nav-work-link, nav-experience-link click → /experience) could NOT be verified because nothing renders.", "affected_selectors": ["[data-testid='nav-work-link']", "[data-testid='nav-experience-link']", "[data-testid='project-list-section']", "#work"]}
+    ],
+    "design_issues": []
+  },
+  "experience_page_results": {
+    "route_loads": true,
+    "title": "Abhilash Mohanta — Experience",
+    "experience-root": true,
+    "kicker_contains_dossier": true,
+    "name_contains_abhilash": true,
+    "career_summary_all_5_bullets": true,
+    "bullet_0_has_5.4_years": true,
+    "bullet_4_has_LLMs_and_Agentic": true,
+    "role_0_tata_technologies_with_dates": true,
+    "role_0_4_subroles_present": true,
+    "role_1_fellowship_3_projects_present": true,
+    "education_0_MBA": "Renders 'MBA · SP Jain Institute of Management & Research · Pursuing' (test spec wanted the abbreviation 'SPJIMR' string; page uses the full name instead — MINOR text mismatch, not a bug)",
+    "education_1_KIIT_2019_chips_8.76": true,
+    "achievement_0_Henkel_SCPC_2025": true,
+    "achievement_3_Hermes_2016-19": true,
+    "back_home_href": "/ (react-router Link)",
+    "download_resume_href": "/resume.pdf",
+    "download_resume_target": "_blank",
+    "linkedin_href": "linkedin.com/in/abhilash-mohanta-spjimr",
+    "linkedin_target": "_blank",
+    "footer_home_href": "/",
+    "resume_pdf_HEAD": "ok=true, status=200",
+    "console_errors_on_/experience": "none"
+  },
+  "test_report_links": [],
+  "action_items": [
+    "URGENT: Fix Nav.jsx — homepage is broken. (1) Add `import { Link } from 'react-router-dom';` (2) Define the missing `hashHref` helper (spec says it should resolve #-hrefs from non-root routes to `/#hash`), e.g. `const {pathname} = useLocation(); const hashHref = (h) => pathname === '/' ? h : '/' + h;`. (3) Update the `links` array to include the new 'Work' entry ({ label:'Work', href:'#work', testId:'nav-work-link' }) and mark Experience as { internal:true, to:'/experience', testId:'nav-experience-link' } so the final 6-link order becomes About / Experience / Work / Podcast / LinkedIn / Contact.",
+    "Once Nav is fixed, re-run regression tests on '/' to confirm hero, project cards (5 × 500×416), podcast, footer, nav-work-link scroll to #work, and nav-experience-link routes to /experience.",
+    "OPTIONAL: On /experience Education section, either update the MBA card to show 'SPJIMR' abbreviation as the review spec requests, or accept the fuller wording. Everything else on /experience is correct."
+  ],
+  "critical_code_review_comments": [
+    "Nav.jsx was pushed in an incomplete state — references undefined identifiers (hashHref, Link). Suggests the file was partially edited without saving all necessary changes. Add ESLint no-undef checks to CI to catch this class of bug.",
+    "Recommend adding a React error boundary around <Nav /> so a nav failure does not blank the entire app."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (frontend-only)", "frontend": "50% — /experience page fully passes; / homepage completely broken"},
+  "seed_data_creation": "none",
+  "retest_needed": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "After E1 fixes Nav.jsx (add Link import, define hashHref helper, add Work link and mark Experience as internal), re-run the portfolio regression: verify 6 nav links with correct testids, click nav-experience-link → /experience, click nav-work-link → scrolls to #work, hero View Resume href='/resume.pdf', 5 project cards visible, no console errors. The /experience page itself is already fully verified and passing.",
+  "rca of the issue": "Root cause: Nav.jsx references `hashHref` (line 70) and `Link` (line 57) which are not defined nor imported. When React renders <Nav />, a ReferenceError is thrown and the entire React root unmounts (no error boundary), leaving <body> effectively empty. Reproduction: open https://pm-portfolio-57.preview.emergentagent.com/ — page is blank. Console shows 'PAGEERROR: hashHref is not defined' and 'An error occurred in the <Nav> component'. Mitigation: import Link from 'react-router-dom' and define hashHref helper as described in action_items; also add a Work link entry and mark Experience internal per the review spec."
+}

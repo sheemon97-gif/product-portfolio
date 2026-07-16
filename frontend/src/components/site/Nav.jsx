@@ -50,35 +50,49 @@ export default function Nav() {
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-9">
-          {links.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              target={l.external ? "_blank" : undefined}
-              rel={l.external ? "noopener noreferrer" : undefined}
-              data-testid={l.testId}
-              className="ed-link font-sans-ed text-[13px] uppercase tracking-[0.22em] text-[#121212] hover:text-[#121212]"
-            >
-              {l.label}
-              {l.external && (
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 10 10"
-                  fill="none"
-                  aria-hidden="true"
+        <nav className="hidden md:flex items-center gap-8">
+          {links.map((l) => {
+            if (l.internal) {
+              return (
+                <Link
+                  key={l.label}
+                  to={l.to}
+                  data-testid={l.testId}
+                  className="ed-link font-sans-ed text-[13px] uppercase tracking-[0.22em] text-[#121212] hover:text-[#121212]"
                 >
-                  <path
-                    d="M2 8L8 2M8 2H3.5M8 2V6.5"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeLinecap="square"
-                  />
-                </svg>
-              )}
-            </a>
-          ))}
+                  {l.label}
+                </Link>
+              );
+            }
+            return (
+              <a
+                key={l.label}
+                href={l.external ? l.href : hashHref(l.href)}
+                target={l.external ? "_blank" : undefined}
+                rel={l.external ? "noopener noreferrer" : undefined}
+                data-testid={l.testId}
+                className="ed-link font-sans-ed text-[13px] uppercase tracking-[0.22em] text-[#121212] hover:text-[#121212]"
+              >
+                {l.label}
+                {l.external && (
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M2 8L8 2M8 2H3.5M8 2V6.5"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                      strokeLinecap="square"
+                    />
+                  </svg>
+                )}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="md:hidden">
