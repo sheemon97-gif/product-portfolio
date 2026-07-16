@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const links = [
   { label: "About", href: "#top", testId: "nav-about-link" },
-  { label: "Experience", href: "#experience", testId: "nav-experience-link" },
+  { label: "Experience", to: "/experience", testId: "nav-experience-link", internal: true },
+  { label: "Work", href: "#work", testId: "nav-work-link" },
   { label: "Podcast", href: "#podcast", testId: "nav-podcast-link" },
   {
     label: "LinkedIn",
@@ -16,6 +18,7 @@ const links = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -23,6 +26,9 @@ export default function Nav() {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // From non-root routes, hash links must navigate back to root first
+  const hashHref = (h) => (location.pathname === "/" ? h : `/${h}`);
 
   return (
     <motion.header
