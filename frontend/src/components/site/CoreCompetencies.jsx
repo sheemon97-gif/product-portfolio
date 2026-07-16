@@ -106,8 +106,7 @@ export default function CoreCompetencies() {
           data-testid="competencies-heading"
           className="font-display text-[#121212] text-[2.4rem] sm:text-[3rem] md:text-[3.8rem] lg:text-[4.4rem] leading-[1.02] tracking-[-0.02em] max-w-[24ch] mb-14 md:mb-20"
         >
-          Three skills, one thread across every PM role —{" "}
-          <span className="font-display-it text-[#A06F26]">Bengaluru to Berlin.</span>
+          Three skills, <span className="font-display-it text-[#A06F26]">one thread.</span>
         </motion.h2>
 
         {/* Card grid */}
