@@ -105,6 +105,49 @@ export default function Hero() {
             create measurable impact.
             <span className="ink-caret align-baseline" aria-hidden="true" />
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: EASE, delay: 1.05 }}
+            className="mt-8 md:mt-10 flex flex-wrap items-center gap-4"
+          >
+            <a
+              data-testid="hero-resume-cta"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-3 rounded-full bg-[#121212] text-[#F4EEDA] px-6 py-3 md:px-7 md:py-3.5 font-sans-ed text-[12px] md:text-[13px] uppercase tracking-[0.24em] overflow-hidden transition-transform duration-500 hover:-translate-y-0.5"
+            >
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-r from-[#A06F26] via-[#C48B3C] to-[#D9381E] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              />
+              <span className="relative z-10 flex items-center gap-3">
+                View Resume
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  className="transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                >
+                  <path
+                    d="M3 11L11 3M11 3H4.75M11 3V9.25"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="square"
+                  />
+                </svg>
+              </span>
+            </a>
+            <span
+              data-testid="hero-resume-meta"
+              className="font-sans-ed text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-[#7A6740]"
+            >
+              PDF · Updated 2025
+            </span>
+          </motion.div>
         </motion.div>
 
         {/* Right: rotating portrait carousel */}
