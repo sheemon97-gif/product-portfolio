@@ -6,7 +6,7 @@ export default function Footer() {
     <footer
       id="contact"
       data-testid="site-footer"
-      className="relative px-6 md:px-10 pt-16 md:pt-24 pb-10 border-t border-[#12121224]"
+      className="relative px-6 md:px-10 pt-14 md:pt-20 pb-10 border-t border-[#12121224]"
     >
       <div className="mx-auto max-w-[1440px] grid grid-cols-12 gap-6 md:gap-10">
         <motion.h4

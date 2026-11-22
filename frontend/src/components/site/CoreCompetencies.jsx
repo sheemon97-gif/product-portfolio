@@ -74,7 +74,7 @@ export default function CoreCompetencies() {
     <section
       id="competencies"
       data-testid="competencies-section"
-      className="relative px-6 md:px-10 py-20 md:py-28 bg-[#F4F4F0]"
+      className="relative px-6 md:px-10 py-14 md:py-20 bg-[#F4F4F0]"
     >
       <div className="mx-auto max-w-[1440px]">
         {/* Kicker */}
@@ -104,7 +104,7 @@ export default function CoreCompetencies() {
           viewport={{ once: true, margin: "-15% 0px" }}
           transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
           data-testid="competencies-heading"
-          className="font-display text-[#121212] text-[2.4rem] sm:text-[3rem] md:text-[3.8rem] lg:text-[4.4rem] leading-[1.02] tracking-[-0.02em] max-w-[24ch] mb-14 md:mb-20"
+          className="font-display text-[#121212] text-[2.4rem] sm:text-[3rem] md:text-[3.8rem] lg:text-[4.4rem] leading-[1.02] tracking-[-0.02em] max-w-[24ch] mb-8 md:mb-12"
         >
           Three skills, <span className="font-display-it text-[#A06F26]">one thread.</span>
         </motion.h2>

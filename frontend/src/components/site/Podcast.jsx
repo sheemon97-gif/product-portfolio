@@ -31,14 +31,14 @@ export default function Podcast() {
         }}
       />
 
-      <div className="relative mx-auto max-w-[1440px] px-6 md:px-10 py-20 md:py-28">
+      <div className="relative mx-auto max-w-[1440px] px-6 md:px-10 py-14 md:py-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15% 0px" }}
           transition={{ duration: 0.9, ease: EASE }}
-          className="flex items-baseline justify-between gap-4 flex-wrap mb-10 md:mb-14"
+          className="flex items-baseline justify-between gap-4 flex-wrap mb-6 md:mb-10"
         >
           <p
             data-testid="podcast-kicker"
@@ -187,7 +187,7 @@ export default function Podcast() {
                 viewport={{ once: true, margin: "-15% 0px" }}
                 transition={{ duration: 1.1, ease: EASE, delay: 0.35 }}
                 data-testid="podcast-trailer-figure"
-                className="absolute -bottom-16 md:-bottom-24 lg:-bottom-28 right-2 md:right-4 lg:right-8 w-[46%] md:w-[42%] lg:w-[38%] xl:w-[36%] aspect-[2000/1309] bg-[#F5B443] p-2 md:p-3 transition-transform duration-500 hover:scale-[1.03]"
+                className="absolute -bottom-12 md:-bottom-16 lg:-bottom-20 right-2 md:right-4 lg:right-8 w-[46%] md:w-[42%] lg:w-[38%] xl:w-[36%] aspect-[2000/1309] bg-[#F5B443] p-2 md:p-3 transition-transform duration-500 hover:scale-[1.03]"
                 style={{ boxShadow: "0 30px 60px -20px rgba(59, 42, 5, 0.55), inset 0 0 0 1px rgba(18,18,18,0.08)" }}
               >
                 <a
@@ -233,7 +233,7 @@ export default function Podcast() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mt-32 md:mt-40 flex items-center justify-between gap-6 flex-wrap border-t border-[#12121228] pt-6"
+          className="mt-28 md:mt-32 lg:mt-16 flex items-center justify-between gap-6 flex-wrap border-t border-[#12121228] pt-6"
         >
           <span className="font-sans-ed text-[10px] uppercase tracking-[0.32em] text-[#3B2A05]">
             Real stories · Real people · Real growth

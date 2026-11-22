@@ -1,5 +1,4 @@
 import React from "react";
-import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 
 const PROJECTS = [
@@ -28,8 +27,8 @@ const PROJECTS = [
     id: "investing-mutual-funds",
     title: "Investing Made Fun — Gamifying Mutual Funds",
     kicker: "Product Sprint 1 · Team Bazinga",
-    image: "/projects/investing-mutual-funds.png",
-    href: "https://theproductspace.in/projects/1756980534988",
+    image: "/projects/investing-made-fun.jpg",
+    href: "/projects/investing-made-fun.html",
   },
   {
     id: "flipkart-funnel",
@@ -66,35 +65,44 @@ function ArrowCTA() {
   );
 }
 
-function ProjectCard({ project }) {
+const EASE = [0.65, 0, 0.35, 1];
+
+function ProjectCard({ project, index, total }) {
   return (
-    <a
+    <motion.a
       href={project.href}
       target="_blank"
       rel="noopener noreferrer"
       data-testid={`project-card-${project.id}`}
-      className="group block mx-4 md:mx-6 lg:mx-8 w-[320px] sm:w-[380px] md:w-[440px] lg:w-[500px] shrink-0"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-10% 0px" }}
+      transition={{ duration: 0.9, ease: EASE, delay: index * 0.08 }}
+      className="group block h-full"
     >
-      <article className="rounded-2xl overflow-hidden bg-[#FBF7EA] border border-[#12121218] shadow-[0_20px_40px_-30px_rgba(18,18,18,0.35)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_30px_60px_-30px_rgba(18,18,18,0.4)]">
+      <article className="h-full flex flex-col rounded-2xl overflow-hidden bg-[#FBF7EA] border border-[#12121218] shadow-[0_20px_40px_-30px_rgba(18,18,18,0.35)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_30px_60px_-30px_rgba(18,18,18,0.4)]">
         {/* Image — preserves aspect ratio via object-contain so nothing gets cropped */}
-        <div className="relative w-full aspect-[820/461] bg-[#F4EEDA] overflow-hidden">
+        <div className="relative w-full aspect-[820/461] bg-[#F4EEDA] overflow-hidden border-b border-[#12121212]">
           <img
             src={project.image}
             alt={project.title}
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-contain transition-transform duration-[900ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:scale-[1.02]"
+            className="absolute inset-0 w-full h-full object-contain transition-transform duration-[900ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:scale-[1.03]"
           />
         </div>
 
         {/* Caption row */}
-        <div className="flex items-end justify-between gap-4 px-5 md:px-6 py-5 md:py-6 min-h-[128px]">
+        <div className="flex-1 flex items-end justify-between gap-4 px-5 py-4 md:py-5">
           <div className="min-w-0 flex-1">
-            <p className="font-sans-ed text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-[#7A6740] mb-2">
-              {project.kicker}
+            <p className="font-sans-ed text-[9px] md:text-[10px] uppercase tracking-[0.28em] text-[#7A6740] mb-2 truncate">
+              <span className="text-[#D9381E]">
+                {String(index + 1).padStart(2, "0")}/{String(total).padStart(2, "0")}
+              </span>
+              &nbsp;&nbsp;·&nbsp;&nbsp;{project.kicker}
             </p>
             <h3
-              className="font-display text-[#121212] text-[22px] md:text-[26px] lg:text-[28px] leading-[1.1] tracking-[-0.015em] line-clamp-2 min-h-[2.2em]"
+              className="font-display text-[#121212] text-[20px] md:text-[21px] lg:text-[23px] leading-[1.12] tracking-[-0.015em] line-clamp-2 min-h-[2.24em]"
               data-testid={`project-title-${project.id}`}
             >
               {project.title}
@@ -103,7 +111,32 @@ function ProjectCard({ project }) {
           <ArrowCTA />
         </div>
       </article>
-    </a>
+    </motion.a>
+  );
+}
+
+function ComingSoonCard({ index }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-10% 0px" }}
+      transition={{ duration: 0.9, ease: EASE, delay: index * 0.08 }}
+      data-testid="project-card-coming-soon"
+      className="h-full min-h-[220px] rounded-2xl border border-dashed border-[#A06F2666] bg-[#F4EEDA]/50 flex flex-col justify-between p-6 md:p-7"
+    >
+      <span className="font-sans-ed text-[9px] md:text-[10px] uppercase tracking-[0.32em] text-[#7A6740]">
+        <span className="text-[#D9381E]">◆</span>&nbsp;&nbsp;In the works
+      </span>
+      <div>
+        <p className="font-display text-[#121212] text-[1.8rem] md:text-[2.1rem] leading-[1.05] tracking-[-0.02em]">
+          More cases <span className="font-display-it text-[#A06F26]">dropping soon.</span>
+        </p>
+        <p className="mt-3 font-sans-ed text-[13px] leading-[1.6] text-[#555] max-w-[32ch]">
+          New teardowns and AI prototypes are on the bench.
+        </p>
+      </div>
+    </motion.div>
   );
 }
 
@@ -112,7 +145,7 @@ export default function ProjectList() {
     <section
       id="work"
       data-testid="project-list-section"
-      className="relative py-20 md:py-28 bg-gradient-to-b from-[#F4F4F0] via-[#F7F1E1] to-[#F4F4F0] overflow-hidden"
+      className="relative py-14 md:py-20 bg-gradient-to-b from-[#F4F4F0] via-[#F7F1E1] to-[#F4F4F0] overflow-hidden"
     >
       {/* Section heading */}
       <div className="mx-auto max-w-[1440px] px-6 md:px-10">
@@ -120,8 +153,8 @@ export default function ProjectList() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15% 0px" }}
-          transition={{ duration: 0.9, ease: [0.65, 0, 0.35, 1] }}
-          className="flex items-end justify-between gap-6 mb-10 md:mb-16 flex-wrap"
+          transition={{ duration: 0.9, ease: EASE }}
+          className="flex items-end justify-between gap-6 mb-8 md:mb-12 flex-wrap"
         >
           <div>
             <p
@@ -138,32 +171,20 @@ export default function ProjectList() {
             </h2>
           </div>
           <p className="font-sans-ed text-[13px] md:text-[14px] leading-[1.6] text-[#333] max-w-[38ch]">
-            A rotating shelf of teardowns, product sprints and 0→1 experiments — hover to pause and open a case.
+            A shelf of teardowns, product sprints and 0→1 experiments — pick any card to open the case.
           </p>
         </motion.div>
-      </div>
 
-      {/* Auto-scrolling marquee */}
-      <div className="relative">
-        <Marquee
-          gradient={true}
-          gradientColor="#F7F1E1"
-          gradientWidth={120}
-          speed={26}
-          pauseOnHover={true}
+        {/* All projects at a glance */}
+        <div
+          data-testid="project-grid"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-7"
         >
-          {PROJECTS.map((p) => (
-            <ProjectCard key={`a-${p.id}`} project={p} />
+          {PROJECTS.map((p, i) => (
+            <ProjectCard key={p.id} project={p} index={i} total={PROJECTS.length} />
           ))}
-          {PROJECTS.map((p) => (
-            <ProjectCard key={`b-${p.id}`} project={p} />
-          ))}
-        </Marquee>
-      </div>
-
-      {/* Small hint below */}
-      <div className="mx-auto max-w-[1440px] px-6 md:px-10 mt-10 md:mt-14 flex items-center justify-end font-sans-ed text-[10px] uppercase tracking-[0.32em] text-[#7A6740]">
-        <span className="hidden md:inline">More cases dropping soon</span>
+          <ComingSoonCard index={PROJECTS.length} />
+        </div>
       </div>
     </section>
   );
