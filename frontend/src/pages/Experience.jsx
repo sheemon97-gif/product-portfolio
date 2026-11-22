@@ -21,58 +21,57 @@ const RESUME = {
   ],
   professionalExperience: [
     {
-      company: "Accenture — Business Architect Associate Manager",
+      company: "Accenture — Reinvention Deployed Engineering",
       client: null,
       dates: "May 2026 – Present",
-      intro:
-        "Currently driving business architecture and product strategy engagements at Accenture.",
+      subroles: [
+        {
+          title: "Australian Insurance Company",
+          bullets: [
+            "Defined product vision and customer experience via AI-assisted discovery, decision support and conversion journey",
+            "Mapped AS-IS processes into AI capabilities: guided recommendations, pricing transparency, drop-off recovery",
+          ],
+        },
+        {
+          title: "US E-commerce Store (Grocery and Pharmacy)",
+          bullets: [
+            "Leveraged grocery basket signals into pharmacy growth ideas via two prototypes validated against live offerings",
+            "Mapped the retailer's live website journey end to end, exposing checkout gaps limiting pharmacy sales",
+            "Designed a five-step agentic AI studio guiding retail category managers from insight to pilot",
+          ],
+        },
+      ],
     },
     {
-      company: "Tata Technologies — Digital Product Development and Systems",
-      client: "[Tata Motors, Tata Daewoo Commercial Vehicles]",
+      company: "Tata Technologies — Digital Product Development",
+      client: null,
       dates: "July 2019 – Nov 2024",
       subroles: [
         {
-          title: "International Experience — Gunsan, South Korea",
+          title: "International Experience — Tata Daewoo, South Korea",
           bullets: [
-            "Delivered on-site consultancy for Product Lifecycle Management (PLM) server migration to Tata Daewoo",
-            "Improved visualization of vehicle mock-ups by 40% by decommissioning legacy server infrastructure",
-            "Conducted infrastructure readiness assessments, ensuring business continuity and mitigating potential risks",
-            "Enhanced design infrastructure efficiency by 20% by testing design software against prescribed parameters",
-            "Formulated vehicle release strategy with senior stakeholders, ensuring seamless operations for research centre",
+            "Delivered on-site consultancy for PLM server migration, ensuring business continuity and mitigating potential risks",
+            "Improved visualisation of vehicle mock-ups by 40% by decommissioning legacy server infrastructure",
           ],
         },
         {
-          title: "Product Management and Digital Transformation",
+          title: "Product Management and Digital Transformation — Tata Motors",
           bullets: [
-            "Owned product management for DigiView, a Digital Mock-Up automation platform, adopted by 500+ vehicle designers",
-            "Defined feature requirements, conducted backlog grooming and ensured delivery aligned with roadmap objectives",
-            "Monitored adoption through monthly KPIs, optimizing engagement and improving product stickiness by 15%",
+            "Owned DigiView, a Digital Mock-Up automation platform, from discovery to adoption by 500+ vehicle designers",
+            "Defined success metrics and tracked monthly adoption and retention, improving product stickiness by 15%",
             "Gathered extensive feedback from vehicle designers to identify pain points, unmet needs and map user stories",
-            "Cut vehicle release cycle by 60%, through consistent customer discovery and formalizing legacy processes",
-            "Optimized design validation process by 80%, enabling faster cost analysis and saving ₹50–60 Lakhs annually",
-            "Contributed to World Class Quality (WCQ) Level 4 compliance, supporting quality standardization for Tata Motors",
+            "Cut vehicle release cycle by 60% through consistent customer discovery and formalising legacy processes",
+            "Optimised the vehicle validation process, cutting effort by 80% and saving ₹50–60 Lakhs annually (value realised)",
             "Increased structured BRD initiations by 50% on a quarterly basis for FY23–24, co-creating new automation proposals",
-            "Realised 600+ man-hours efficiency; converting vehicle designer issues into BRDs, accelerating value realization",
-            "Improved delivery efficiency and quality; equipping designers with best practices for error-free SOW completion",
-            "Served as SME in DMU engineering practise; leveraging existing PLM infrastructure to drive financial performance",
           ],
         },
         {
-          title: "Product Delivery and Release",
+          title: "Product Delivery and Release — Tata Motors",
           bullets: [
-            "Oversaw end-to-end product lifecycle of an automation platform, YouCalc, with a focus on R&D calculations",
+            "Scaled an R&D automation platform from 0 to 1: ideation, POC, launch and scale to 20+ apps across 9 departments",
             "Reduced computation time by 70% with an electrical power distribution tool, accelerating results delivery",
-            "Developed 20+ applications boosting productivity across 8 departments, ensuring high adoption of the platform",
-            "Incorporated cross-functional inputs for ideation, conceptualization, POC validation and post-launch optimization",
-            "Ensured timely release closure, UAT and stakeholder buy-in, achieving consistent high-quality delivery standards",
-          ],
-        },
-        {
-          title: "Stakeholder Management",
-          bullets: [
-            "Boosted MAU by 30%, by driving adoption across 9 departments; advising stakeholders on process improvements",
-            "Drove continuous product improvement through weekly dialogs with designers on new automation concepts",
+            "Partnered with cross-functional teams for ideation, conceptualisation, POC validation and post-launch iteration",
+            "Boosted MAU by 30% by driving adoption across 9 departments; advising stakeholders on process improvements",
             "Mentored a cohort of 30+ engineers on DMU engineering, achieving 80% skill competency growth over 6 months",
           ],
         },

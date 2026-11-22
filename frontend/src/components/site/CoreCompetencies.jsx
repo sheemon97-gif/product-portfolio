@@ -9,7 +9,7 @@ const SKILLS = [
     number: "01",
     tag: "Hard Skill",
     title: "Data-driven decision-making",
-    body: "Every roadmap call backed by DAU/MAU, conversion, retention, and A/B tests — not opinion. Fluent in Mixpanel, SQL, and hypothesis-led validation before code is written.",
+    body: "Every roadmap call backed by how people actually use the product — adoption, conversion and retention — not opinion. I test ideas with real users and let the evidence decide what gets built.",
   },
   {
     id: "soft-skill",
