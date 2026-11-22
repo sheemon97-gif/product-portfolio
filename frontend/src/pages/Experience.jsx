@@ -13,6 +13,7 @@ const RESUME = {
     linkedinLabel: "linkedin.com/in/abhilash-mohanta-spjimr",
   },
   careerSummary: [
+    "Recent MBA graduate from SPJIMR, Mumbai and former solution developer, building AI product prototypes",
     "5.4+ years of technology consulting experience in digital product development and managing product lifecycle",
     "Adept in stakeholder management and driving digital transformation initiatives in global automobile companies",
     "Certified Scrum Master and Product Owner with expertise in POC development, agile and product management",
@@ -112,19 +113,23 @@ const RESUME = {
     {
       degree: "MBA",
       institution: "SP Jain Institute of Management & Research",
-      dates: "2026",
-      details: ["Information Management"],
+      dates: "May 2026",
+      details: [
+        "Information Management and Analytics",
+        "Minor · Digital Product Marketing",
+        "Minor · Digital Product Management",
+      ],
     },
     {
       degree: "B.Tech",
       institution: "KIIT Deemed to be University",
-      dates: "2019",
+      dates: "April 2019",
       details: ["Mechanical Engineering", "8.76 CGPA"],
     },
   ],
   achievements: [
     {
-      title: "National Winners · Henkel SCPC Supply Chain Hackathon",
+      title: "National Winner · Henkel SCPC Supply Chain Hackathon",
       year: "2025",
       note: "Designed innovative supply chain for retailers",
     },
@@ -132,6 +137,16 @@ const RESUME = {
       title: "AI Educator · Abhyudaya, SPJIMR",
       year: "2025",
       note: "Mentored underprivileged students in Gen AI and effective communication",
+    },
+    {
+      title: "Lead Organiser · Division Wars",
+      year: "2025",
+      note: "Ran a multi-arena inter-division contest for 160+ students",
+    },
+    {
+      title: "Certifications",
+      year: "Certified",
+      note: "Forward Deployed Engineering – Foundations · Certified Scrum Master · Certified Product Owner",
     },
     {
       title: "Champion of the Month · Tata Technologies",

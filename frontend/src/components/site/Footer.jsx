@@ -19,7 +19,7 @@ export default function Footer() {
           Currently reading briefs, <span className="font-display-it text-[#A06F26]">writing specs,</span> and shipping <span className="font-deva text-[#D9381E]">प्रोडक्ट</span>.
         </motion.h4>
 
-        <div className="col-span-12 md:col-span-4 flex flex-col justify-end gap-3 md:items-end">
+        <div className="col-span-12 md:col-span-4 flex flex-col justify-end gap-5 md:gap-3 md:items-end">
           <a
             data-testid="footer-linkedin"
             href="https://www.linkedin.com/in/abhilash-mohanta-spjimr/"
